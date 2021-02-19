@@ -1,6 +1,14 @@
 # Food-For-You
 an app to help you decide where to eat.
 
+## *Link to Previous Repo w/ Commits:*
+https://github.com/davevebber/food-for-you
+
+Had to create a new repo, due to difficulties with the previous deployed link not updating correctly. All previous commits are in the commit log of the repo link above. 
+
+## Deployed Link to Site
+https://josephprospero.github.io/food-for-you/
+
 ## How To Use
 Use the dropdown list to choose your category and price of food. Then choose a movie genre from the dropdown list. Finally hit submit and your choices will be displayed on the page! If you still are unsure of what you want to eat, choose from some of your previous suggestions that will be listed at the bottom. 
 
