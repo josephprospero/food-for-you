@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/Users/calebportales/mybulma/mystyles.scss"> -->
+    <title>Food For You</title>
+</head>
+
+<body>
+    <!-- navbar start -->
+    <nav id="nav" class="hero is-info">
+        <div class="row">
+            <div id="hero-background" class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+            <div class="row">
+                <img class="top-header" src="./assets/images/checker.jpg">
+            </div>
+        </div>
+        </div>
+        <div class="hero-body">
+            <p class="title">Food For You
+                <img class="navbar-icon" src="./assets/images/navbar-icon.png"
+                    alt="little symbol of a plate with forks">
+            </p>
+
+            <brk></brk>
+
+            <p class="subtitle">Let us take care of the hard part. &#x1F354 &#127839</p>
+        </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- modal -->
+    <div id="error-modal" class="modal">
+        <div id="modal-background" class="modal-background">
+            <div class="modal-content has-background-white py-5 px-5">
+                <p class="title mb-6">Sorry there were no results for this food choice.</p>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
+
+    <!-- drop down options start -->
+    <main>
+        <section class="container">
+            <!-- what category for food // use this selection for the search term -->
+            <div id="dropDownOptions" class="columns is-centered">
+                <div class="column">
+                    <section class="dropdownCard">
+                        <h2 class="title is-size-4">What kind of food?</h2>
+                        <div class="select">
+                            <select id="food-category">
+                                <option selected disabled>Select dropdown</option>
+                                <option value="chinese">Chinese</option>
+                                <option value="pizza">Pizza</option>
+                                <option value="greek">Greek</option>
+                                <option value="ramen">Ramen</option>
+                                <option value="Korean">Korean</option>
+                                <option value="caribbean">Caribbean</option>
+                                <option value="mexican">Mexican</option>
+                                <option value="chicken">Chicken</option>
+                                <option value="foodtruck">Food Truck</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="mediterranean">Mediterranean</option>
+                                <option value="dominican">Dominican</option>
+                                <!-- etc // we need a few more options // a working random option? -->
+                            </select>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Price Points -->
+                <div class="column">
+                    <section class="dropdownCard">
+                        <h2 class="title is-size-4">What's your budget (per person)?</h2>
+                        <div class="select">
+                            <select id="yelp-price">
+                                <option selected disabled>Select dropdown</option>
+                                <option value="1">$ ($1-10)</option>
+                                <option value="2">$$ ($11-20)</option>
+                                <option value="3">$$$ ($21-30)</option>
+                                <option value="4">$$$$ ($31+)</option>
+                            </select>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ~ Movie Drop Down ~-->
+                <div class="column">
+                    <section class="dropdownCard">
+                        <h2 class="title is-size-4">What kind of movie?</h2>
+                        <div class="select">
+                            <select class="movie-genre-dropdown">
+                                <option disabled selected>Select Genre</option>
+                                <option value="28">Action</option>
+                                <option value="12">Adventure</option>
+                                <option value="16">Animation</option>
+                                <option value="35">Comedy</option>
+                                <option value="80">Crime</option>
+                                <option value="99">Documentary</option>
+                                <option value="18">Drama</option>
+                                <option value="10751">Family</option>
+                                <option value="14">Fantasy</option>
+                                <option value="36">History</option>
+                                <option value="27">Horror</option>
+                                <option value="10402">Music</option>
+                                <option value="9648">Mystery</option>
+                                <option value="10749">Romance</option>
+                                <option value="878">Science Fiction</option>
+                                <option value="53">Thriller</option>
+                                <option value="10752">War</option>
+                                <option value="37">Western</option>
+                            </select>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </section>
+
+        <button id="submitBtn" class="button is-large is-fullwidth is-rounded is-focused">Submit</button>
+    </main>
+    <!-- drop down options end -->
+
+    <!-- ~ Query Results Start ~ -->
+    <section id="overall-results">
+        <!-- restaurant results start -->
+            <!-- restaurant results start -->
+            <div class="column">
+                <section id="restaurant-results" class="section is-hidden-touch is-hidden-desktop">
+                    <div>
+                        <h4 id="restaurant-name" class="strong"></h4>
+                        <h4 id="yelp-rating" class="is-size-5"></h4>
+                        <div class="has-text-centered">
+                            <button id="restaurant-website" class="button is-rounded is-focused is-centered">
+                                <a id="yelp-link" target="_blank" href="">Check them out on Yelp!</a>
+                            </button>
+                        </div>
+                        <img id="restaurant-image" class="column is-narrow" src=""
+                            alt="picture from yelp about the restaurant" height="300px" width="350px">
+                    </div>
+                </section>
+                <!-- restaurant results end -->
+
+                <!-- ~ Movie Results Start ~ -->
+                <section id="movie-results" class="section is-hidden-touch is-hidden-desktop">
+                    <div>
+                        <h4 id="movie-name" class="strong"></h4>
+                        <div class="has-text-centered">
+                            <button id="movie-website" class="button is-rounded is-focused is-centered">
+                                <a id="movie-link" target="_blank" href="">TMDB Page &</b> Where to watch it</b></a>
+                            </button>
+                        </div>
+                        <img id="poster-image" class="column is-narrow" src="" alt="Movie Poster" height="225px"
+                            width="225px">
+                    </div>
+
+                </section>
+            </div>
+    </section>
+    <!-- ~ Movie Results End ~ -->
+    <!-- ~ Query Results End~ -->
+
+    <!-- ~Local Storage~ -->`
+    <section class="suggestions">
+        <h4 class="section-title work-title is-hidden-touch is-hidden-desktop" id="robert">Having second thoughts?
+            Here's some of your previous suggestions.</h4>
+        <div class="grid-wrapper">
+            <div class="grid-container">
+                <div id="box1" class="grid-item fill is-hidden-touch is-hidden-desktop">
+                    <div class="card column search-history">
+                        <div class="card-image">
+                            <div class="image img-history">
+                                <a id="url1" href="">
+                                    <img id="img1" src="" alt="Placeholder image" class="center">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4" id="history1">Restaurant 1</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="box2" class="grid-item fill is-hidden-touch is-hidden-desktop">
+                    <div class="card column search-history">
+                        <div class="card-image">
+                            <div class="image img-history">
+                                <a id="url2" href="">
+                                    <img id="img2" src="" alt="Placeholder image" class="center">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4" id="history2">Restaurant 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="box3" class="grid-item fill is-hidden-touch is-hidden-desktop">
+                    <div class="card column search-history">
+                        <div class="card-image">
+                            <div class="image img-history">
+                                <a id="url3" href="">
+                                    <img id="img3" src="" alt="Placeholder image" class="center">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4" id="history3">Restaurant 3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ~Local Storage End~ -->
+
+    <script src="./assets/javascript/script.js"></script>
+</body>
+
+</html>
